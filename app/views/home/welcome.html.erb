@@ -1,0 +1,13 @@
+<h1>Boas-vindas à Task List!</h1>
+<h3>Sua lista de tarefas:</h3>
+<br><%= link_to 'Adicionar algo a lista', new_task_path %><br>
+
+<% @tasks.each do |task| %>
+    <br> 
+    <%= task.description %> 
+    <%= link_to 'Editar', edit_task_path(task)%> 
+    <%= link_to 'Apagar', task_path(task), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza??" } %>
+    </br>
+    
+
+<% end %>
